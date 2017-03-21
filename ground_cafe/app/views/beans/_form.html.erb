@@ -1,0 +1,47 @@
+<%= form_for(bean) do |f| %>
+  <% if bean.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(bean.errors.count, "error") %> prohibited this bean from being saved:</h2>
+
+      <ul>
+      <% bean.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :blend %>
+    <%= f.text_field :blend %>
+  </div>
+
+  <div class="field">
+    <%= f.label :flavor %>
+    <%= f.text_field :flavor %>
+  </div>
+
+  <div class="field">
+    <%= f.label :size %>
+    <%= f.text_field :size %>
+  </div>
+
+  <div class="field">
+    <%= f.label :brew %>
+    <%= f.text_field :brew %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cost %>
+    <%= f.number_field :cost %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image %>
+    <%= f.text_field :image %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

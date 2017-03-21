@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  blend: MyString
+  flavor: MyString
+  size: MyString
+  brew: MyString
+  cost: 1
+  image: MyString
+
+two:
+  blend: MyString
+  flavor: MyString
+  size: MyString
+  brew: MyString
+  cost: 1
+  image: MyString
