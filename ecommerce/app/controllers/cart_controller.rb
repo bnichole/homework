@@ -1,5 +1,5 @@
 class CartController < ApplicationController
-	before_action :authenticate_user!, only: [checkout]
+	before_action :authenticate_user!, only: [:checkout]
 
   def add_to_cart
   	line_item = LineItem.new
@@ -48,7 +48,7 @@ class CartController < ApplicationController
 
   def order_complete
   	@order = Order.find(params[:order_id])
-  	@amount = 9@order.grand_total.to.fround(2) * 100).to_i
+  	@amount = (@order.grand_total.to_f.round(2) * 100).to_i
 
 	customer = Stripe::Customer.create(
 	       :email => current_user.email,
@@ -65,7 +65,6 @@ class CartController < ApplicationController
 	   rescue Stripe::CardError => e
 	     flash[:error] = e.message
 	     redirect_to charges_path
-	   end
 
 	end
 
