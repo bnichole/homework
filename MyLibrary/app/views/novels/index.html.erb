@@ -1,17 +1,15 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Novels</h1>
-
-<% if books.pages > 240 %>
-  <% @books.each do |book| %>
+  <% @novels.each do |novel| %>
     <div class="col-md-4">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h3 class="panel-title"><%= link_to book.title, book %></h3>
+          <h3 class="panel-title"><%= link_to novel.title, novel %></h3>
         </div>
         <div class="panel-body">
-          <%= image_tag book.image.url(:medium), class: "center-block" %>
-          <p>by: <%= book.author %></p>
+          <%= image_tag novel.image.url(:medium), class: "center-block" %>
+          <p>by: <%= novel.author %></p>
         </div>
 
         <div class="panel-footer">
@@ -23,18 +21,18 @@
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="myModal_<%= book.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal fade" id="myModal_<%= novel.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel"><%= book.title %></h4>
+            <h4 class="modal-title" id="myModalLabel"><%= novel.title %></h4>
           </div>
           <div class="modal-body">
-            <h5>By: <%= book.author %></h5>
-            <%= image_tag book.image.url(:medium), class: "center-block" %>
-            <p>Genre: <%= book.genre %></p>
-            <p>Pages: <%= book.pages %></p>
+            <h5>By: <%= novels.author %></h5>
+            <%= image_tag novel.image.url(:medium), class: "center-block" %>
+            <p>Genre: <%= novel.genre %></p>
+            <p>Pages: <%= novel.pages %></p>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -43,7 +41,5 @@
       </div>
     </div>
   <% end %>
-<% end %>
 
-<%= link_to 'Edit', edit_novel_path(@novel) %> |
-<%= link_to 'Back', novels_path %>
+

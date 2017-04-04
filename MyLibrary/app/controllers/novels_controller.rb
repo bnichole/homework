@@ -1,5 +1,6 @@
 class NovelsController < ApplicationController
   before_action :set_novel, only: [:show, :edit, :update, :destroy]
+  before_action :novel_length
 
   # GET /novels
   # GET /novels.json
@@ -19,6 +20,10 @@ class NovelsController < ApplicationController
 
   # GET /novels/1/edit
   def edit
+  end
+
+  def novel_length
+    @novel_length_books = Book.where("pages > ?", 240)
   end
 
   # POST /novels
