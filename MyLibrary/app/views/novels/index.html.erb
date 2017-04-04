@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Novels</h1>
+
+<% if books.pages > 240 %>
+  <% @books.each do |book| %>
+    <div class="col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= link_to book.title, book %></h3>
+        </div>
+        <div class="panel-body">
+          <%= image_tag book.image.url(:medium), class: "center-block" %>
+          <p>by: <%= book.author %></p>
+        </div>
+
+        <div class="panel-footer">
+            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal_<%= book.id %>">
+            <span class="glyphicon glyphicon-plus">Quick Info</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal_<%= book.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel"><%= book.title %></h4>
+          </div>
+          <div class="modal-body">
+            <h5>By: <%= book.author %></h5>
+            <%= image_tag book.image.url(:medium), class: "center-block" %>
+            <p>Genre: <%= book.genre %></p>
+            <p>Pages: <%= book.pages %></p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+
+<%= link_to 'Edit', edit_novel_path(@novel) %> |
+<%= link_to 'Back', novels_path %>

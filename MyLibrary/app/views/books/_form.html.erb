@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label :book_title %>
-    <%= f.text_area :book_title %>
+    <%= f.label :title %>
+    <%= f.text_area :title %>
   </div>
 
   <div class="form-group">
@@ -27,14 +27,14 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :number_of_pages %>
-    <%= f.number_field :number_of_pages %>
+    <%= f.label :pages %>
+    <%= f.number_field :pages %>
   </div>
 
-  <br>
+<br>
 
   <div class="form-group">
-    <strong> Upload Book Image </strong>
+    <strong>Upload Product Image: </strong>
     <br>
     <%= f.file_field :image %>
   </div>

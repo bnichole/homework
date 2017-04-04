@@ -1,12 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-<%= image_tag @book.image.url, width: '100%' %>
+ <%= image_tag @book.image.url, width: '100%' %>
 </p>
 
 <p>
-  <strong>Book title:</strong>
-  <%= @book.book_title %>
+  <strong>Title:</strong>
+  <%= @book.title %>
 </p>
 
 <p>
@@ -20,8 +20,8 @@
 </p>
 
 <p>
-  <strong>Number of pages:</strong>
-  <%= @book.number_of_pages %>
+  <strong>Pages:</strong>
+  <%= @book.pages %>
 </p>
 
 <%= link_to 'Edit', edit_book_path(@book) %> |
